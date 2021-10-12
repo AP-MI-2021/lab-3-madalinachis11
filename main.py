@@ -1,7 +1,6 @@
 from typing import List
 
 
-
 def read_list() -> List[int]:
     '''
     Functia de citire a listei.
@@ -20,7 +19,6 @@ def get_longest_prime_digits(lst: list[int]) -> List[int]:
     :param list: lista de numere
     :return: cea mai lunga subsecventa
     '''
-
 
     n = len(lst)
     result= []
@@ -73,7 +71,7 @@ def test_prime_digits():
 
 def get_longest_all_palindromes(lst: list[int]) -> List[int]:
     '''
-    Determina cea mai lunga subsecventa cu proprietatea ca toate numerele sunt palindroame.
+    Functia determina cea mai lunga subsecventa cu proprietatea ca toate numerele sunt palindroame.
     :param lst: lista in care se cauta subsecventa
     :return: subsecventa gasita
     '''
@@ -121,6 +119,10 @@ def is_palindrome(n) ->bool:
         return False
 
 def test_is_palindrome():
+    '''
+    Functia testeaza daca numarul introdus este sau nu palindrom.
+    :return: True daca numarul este palindrom si False daca numarul nu este palindrom
+    '''
     assert is_palindrome(121) == True
     assert is_palindrome(12) == False
     assert is_palindrome(1001) == True
