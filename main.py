@@ -178,6 +178,10 @@ def test_is_even():
     assert is_even(33) == False
     assert is_even(124) == True
 
+def teste():
+    test_get_longest_prime_digits()
+    test_get_longest_all_palindromes()
+    test_get_longest_all_even()
 
 def main():
 
@@ -193,13 +197,10 @@ def main():
             lst= read_list()
         elif optiune == '2':
             print('Cea mai lunga subsecventa cu toate numerele palindroame este:', get_longest_all_palindromes(lst))
-            test_get_longest_all_palindromes()
         elif optiune=='3':
             print('Cea mai lunga subsecventa cu toate numerele formate din cifre prime este:', get_longest_prime_digits(lst))
-            test_get_longest_prime_digits()
         elif optiune == '4':
             print('Cea mai lunga subsecventa cu toate numerele pare este:', get_longest_all_even(lst))
-            test_get_longest_all_even()
         elif optiune=='x':
             break
         else:
