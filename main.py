@@ -128,6 +128,57 @@ def test_is_palindrome():
     assert is_palindrome(1001) == True
 
 
+def get_longest_all_even(lst: list[int]) -> list[int]:
+    '''
+    Functia determina cea mai lunga subsecventa cu proprietatea ca toate numerele sunt pare.
+    :param lst: lista de numere
+    :return: subsecventa ceruta
+    '''
+    n = len(lst)
+    result = []
+    for stanga in range(n):
+        for dreapta in range(stanga, n):
+            all_digit_even = True
+            for num in lst[stanga:dreapta + 1]:
+                if is_even(num) == False:
+                    all_digit_even = False
+                    break
+            if all_digit_even == True:
+                if dreapta - stanga + 1 > len(result):
+                    result = lst[stanga:dreapta + 1]
+    return result
+
+def test_get_longest_all_even():
+    '''
+    Functia testeaza si returneaza cea mai lunga subsecventa in care toate numerele sunt pare.
+    :return: secventa care respecta proprietatea
+    '''
+    assert get_longest_all_even([12, 34, 56, 79, 65, 78, 24, 98, 100]) == [78, 24, 98, 100]
+    assert get_longest_all_even([100, 102, 1006, 2222, 357, 274, 5847]) == [100, 102, 1006, 2222]
+    assert get_longest_all_even([345, 54543, 5352, 4356,93277,854]) == [5352, 4356]
+    assert get_longest_all_even([746123, 2342, 5332, 5328, 23424, 23221, 53523]) == [2342, 5332, 5328, 23424]
+
+
+def is_even(n):
+    '''
+    Functia verifica daca numarul introdus este par.
+    :param n: numarul care urmeaza sa fie testat
+    :return: True daca numarul este par si False in caz contrar
+    '''
+    if n % 2 == 1:
+        return False
+    return True
+
+def test_is_even():
+    '''
+    Functia testeaza daca numarul este par.
+    :return: True daca numarul este par si False daca numarul nu este par
+    '''
+    assert is_even(12) == True
+    assert is_even(33) == False
+    assert is_even(124) == True
+
+
 def main():
 
     lst=[]
@@ -135,6 +186,7 @@ def main():
         print('1.Citire lista')
         print('2.Determinare cea mai lungă subsecvență cu proprietatea ca toate numerele sunt palindroame.')
         print('3.Determinare cea mai lungă subsecvență cu proprietatea ca toate numerele sunt formate din cifre prime.')
+        print('4.Determinare cea mai lunga subsecventa cu proprietatea ca toate numerele sunt pare.')
         print('x Iesire.')
         optiune=input('Optiunea: ')
         if optiune == '1':
@@ -145,6 +197,9 @@ def main():
         elif optiune=='3':
             print('Cea mai lunga subsecventa cu toate numerele formate din cifre prime este:', get_longest_prime_digits(lst))
             test_get_longest_prime_digits()
+        elif optiune == '4':
+            print('Cea mai lunga subsecventa cu toate numerele pare este:', get_longest_all_even(lst))
+            test_get_longest_all_even()
         elif optiune=='x':
             break
         else:
