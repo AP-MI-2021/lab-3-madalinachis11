@@ -178,11 +178,6 @@ def test_is_even():
     assert is_even(33) == False
     assert is_even(124) == True
 
-def teste():
-    test_get_longest_prime_digits()
-    test_get_longest_all_palindromes()
-    test_get_longest_all_even()
-
 def main():
 
     lst=[]
@@ -207,4 +202,7 @@ def main():
             print('Optiune invalida.')
 
 if __name__ == '__main__':
+    test_get_longest_prime_digits()
+    test_get_longest_all_palindromes()
+    test_get_longest_all_even()
     main()
